@@ -1,0 +1,167 @@
+/* Kontor – Ledger-Papier, Flaschengrün, Public Sans. Hell und dunkel über data-theme auf <html>. */
+:root {
+  --paper: #f2f4f1;
+  --surface: #ffffff;
+  --surface-2: #f8faf8;
+  --hover: #f3f7f4;
+  --ink: #1e2523;
+  --ink-2: #3a4542;
+  --muted: #5d6a65;
+  --line: #d8ded9;
+  --line-strong: #bcc6c0;
+  --line-soft: #e7ebe8;
+  --primary: #2f5d50;
+  --primary-hover: #20403a;
+  --on-primary: #ffffff;
+  --link: #2f5d50;
+  --tint: #e3ece8;
+  --tint-ink: #20403a;
+  --red: #a33a2b;
+  --red-hover: #8a2f22;
+  --red-tint: #f6e5e1;
+  --ochre: #8a5e0e;
+  --ochre-tint: #f6eedc;
+  --badge-neutral: #ebeeec;
+  --switch-off: #c3ccc7;
+  --bar: #2f5d50;
+  --bar-soft: #8fb3a6;
+  --sidebar: #20403a;
+  --sidebar-ink: #cfdcd6;
+  --sidebar-muted: #9db6ab;
+  --sidebar-active: #183029;
+  --sidebar-rule: rgba(255, 255, 255, 0.09);
+  --sidebar-hover: rgba(255, 255, 255, 0.06);
+  --shadow: 0 10px 30px rgba(16, 32, 27, 0.16);
+  --backdrop: rgba(24, 40, 35, 0.42);
+  --focus: #3d7cc9;
+  --radius: 5px;
+  --font: "Public Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, ui-monospace, monospace;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --paper: #121816;
+  --surface: #19211e;
+  --surface-2: #1d2622;
+  --hover: #212b27;
+  --ink: #e3ebe7;
+  --ink-2: #c3cfca;
+  --muted: #8f9e98;
+  --line: #2c3833;
+  --line-strong: #3d4b45;
+  --line-soft: #232d29;
+  --primary: #3f7d6a;
+  --primary-hover: #4a8f7a;
+  --on-primary: #f4faf7;
+  --link: #8cc5b0;
+  --tint: #1f3530;
+  --tint-ink: #a9d6c5;
+  --red: #e38a78;
+  --red-hover: #c96f5d;
+  --red-tint: #3a2421;
+  --ochre: #dcae55;
+  --ochre-tint: #342b18;
+  --badge-neutral: #26302c;
+  --switch-off: #3d4b45;
+  --bar: #5fa38c;
+  --bar-soft: #35594d;
+  --sidebar: #0e1412;
+  --sidebar-ink: #b9c8c1;
+  --sidebar-muted: #7c8f87;
+  --sidebar-active: #1c2925;
+  --sidebar-rule: rgba(255, 255, 255, 0.06);
+  --sidebar-hover: rgba(255, 255, 255, 0.04);
+  --shadow: 0 12px 34px rgba(0, 0, 0, 0.5);
+  --backdrop: rgba(4, 8, 6, 0.6);
+  --focus: #6aa6ff;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+body {
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  font-variant-numeric: tabular-nums;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+h1 {
+  font-size: 24px;
+}
+h2 {
+  font-size: 15px;
+}
+h3 {
+  font-size: 14px;
+}
+p {
+  margin: 0 0 10px;
+}
+code,
+.mono {
+  font-family: var(--mono);
+  font-size: 12.5px;
+}
+.muted {
+  color: var(--muted);
+}
+.small {
+  font-size: 12.5px;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.text-danger {
+  color: var(--red);
+}
+.text-warn {
+  color: var(--ochre);
+}
+.strong {
+  font-weight: 600;
+}
+.ellipsis {
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.icon {
+  width: 17px;
+  height: 17px;
+  flex: none;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
