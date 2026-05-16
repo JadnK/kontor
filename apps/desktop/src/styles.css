@@ -165,3 +165,142 @@ code,
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
+/* ---------- Verbindungsbildschirm ---------- */
+.connect {
+  display: grid;
+  grid-template-columns: minmax(340px, 34%) 1fr;
+  height: 100%;
+}
+.connect-side {
+  background: var(--sidebar);
+  color: var(--sidebar-ink);
+  padding: 44px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 31px, rgba(255, 255, 255, 0.045) 31px, rgba(255, 255, 255, 0.045) 32px);
+}
+.connect-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+.connect-side p {
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 32ch;
+}
+.connect-main {
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  overflow: auto;
+  position: relative;
+}
+.connect-card {
+  width: min(540px, 100%);
+}
+.connect-card h1 {
+  margin-bottom: 8px;
+}
+.connect-card form > .field,
+.connect-card form > .grid-2 {
+  margin-bottom: 14px;
+}
+.connect-card .muted {
+  margin-bottom: 18px;
+}
+.connect-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+.notice {
+  background: var(--ochre-tint);
+  border-left: 3px solid var(--ochre);
+  padding: 10px 14px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin-bottom: 18px;
+}
+.host {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  margin-left: 6px;
+}
+.profile-list {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.profile-list li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.profile {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  text-align: left;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  cursor: pointer;
+  row-gap: 2px;
+}
+.profile:hover {
+  border-color: var(--primary);
+}
+.profile strong {
+  grid-column: 1;
+}
+.profile span:not(.spinner) {
+  grid-column: 1;
+  color: var(--muted);
+  font-size: 12.5px;
+}
+.profile .spinner {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  color: var(--primary);
+}
+.connect-theme {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+@media (max-width: 1240px) {
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+  .detail-side {
+    position: static;
+  }
+  .dash-grid {
+    grid-template-columns: 1fr;
+  }
+  .msg-out,
+  .composer {
+    margin-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
