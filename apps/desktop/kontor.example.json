@@ -1,0 +1,6 @@
+{
+  "servers": [
+    { "name": "Muster GmbH", "url": "https://kontor.muster.de" }
+  ],
+  "lockServers": false
+}
