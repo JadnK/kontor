@@ -1025,6 +1025,176 @@ input.num {
   margin: 18px 0 10px;
 }
 
+/* ---------- Dashboard ---------- */
+.figures {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin-bottom: 26px;
+}
+.figure {
+  border: 0;
+  border-left: 1px solid var(--line);
+  background: transparent;
+  text-align: left;
+  padding: 16px 20px 18px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.figure:first-child {
+  border-left: 0;
+}
+.figure:hover {
+  background: var(--hover);
+}
+.figure-label {
+  color: var(--muted);
+  font-size: 13px;
+}
+.figure-value {
+  font-size: 27px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.figure-note {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.figure-alert .figure-value {
+  color: var(--red);
+}
+.dash-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 28px;
+}
+.chart {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px 10px;
+}
+.chart-head {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 12.5px;
+  margin-bottom: 8px;
+}
+.chart-head strong {
+  color: var(--ink);
+  font-size: 13px;
+}
+.bars {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 6px;
+  height: 190px;
+}
+.bar-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  min-width: 0;
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: default;
+}
+.bar-col span {
+  font-size: 11.5px;
+  color: var(--muted);
+}
+.bar-track {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--line);
+}
+.bar {
+  width: 100%;
+  background: var(--bar-soft);
+  border-radius: 2px 2px 0 0;
+  min-height: 1px;
+}
+.bar-col:last-child .bar,
+.bar-col:hover .bar {
+  background: var(--bar);
+}
+.due-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.due-list li + li {
+  border-top: 1px solid var(--line-soft);
+}
+.due-list button {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 14px;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+.due-list button:hover {
+  background: var(--hover);
+}
+.due-list .due-amount {
+  font-weight: 600;
+  text-align: right;
+}
+.due-list .sub {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.hints {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.hint {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background: var(--ochre-tint);
+  border-left: 3px solid var(--ochre);
+  padding: 7px 8px 7px 14px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin-bottom: 14px;
+}
+.hints .hint {
+  margin: 0;
+}
+.hint-danger {
+  background: var(--red-tint);
+  border-left-color: var(--red);
+}
+.hint-info {
+  background: var(--tint);
+  border-left-color: var(--primary);
+}
+.footnote {
+  color: var(--muted);
+  margin-top: 14px;
+  font-size: 13px;
+}
+
 /* ---------- Detailseiten ---------- */
 .detail-grid {
   display: grid;
