@@ -1,0 +1,62 @@
+# Kontor-Server + PostgreSQL
+#   cp .env.example .env   # Werte setzen
+#   docker compose up -d
+#   docker compose logs server | grep Einrichtungs-Token
+#
+# TLS übernimmt ein Reverse Proxy (z. B. Nginx Proxy Manager, Caddy, Traefik)
+# → Proxy-Host kontor.example.de  →  http://<host>:8080
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: kontor
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD fehlt}
+      POSTGRES_DB: kontor
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U kontor -d kontor"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  server:
+    # Standard: lokal aus apps/server bauen. Mit KONTOR_IMAGE=ghcr.io/<name>/kontor-server:latest
+    # und `docker compose pull` stattdessen das Image aus GitHub verwenden.
+    image: ${KONTOR_IMAGE:-kontor-server:local}
+    build: ../apps/server
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgres://kontor:${POSTGRES_PASSWORD}@db:5432/kontor
+      APP_SECRET: ${APP_SECRET:?APP_SECRET fehlt}
+      PUBLIC_URL: ${PUBLIC_URL:-}
+      SETUP_TOKEN: ${SETUP_TOKEN:-}
+      INSTANCE_NAME: ${INSTANCE_NAME:-}
+      KONTOR_INSECURE_TLS: ${KONTOR_INSECURE_TLS:-}
+    ports:
+      - "${KONTOR_PORT:-8080}:8080"
+
+  # Tägliches Datenbank-Backup, 14 Tage aufbewahrt
+  backup:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PGPASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - ./backups:/backups
+    entrypoint: >
+      sh -c 'while true; do
+        pg_dump -h db -U kontor -Fc kontor > /backups/kontor-$$(date +%F).dump &&
+        find /backups -name "kontor-*.dump" -mtime +14 -delete;
+        sleep 86400; done'
+
+volumes:
+  db-data:
