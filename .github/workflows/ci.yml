@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  server:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: kontor
+          POSTGRES_PASSWORD: kontor
+          POSTGRES_DB: kontor
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U kontor" --health-interval 5s --health-timeout 5s --health-retries 10
+    defaults:
+      run:
+        working-directory: apps/server
+    env:
+      DATABASE_URL: postgres://kontor:kontor@localhost:5432/kontor
+      APP_SECRET: ci-only-secret-0123456789abcdef0123456789
+      SETUP_TOKEN: ci
+      PORT: 8080
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/server/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run build
+      - name: Server starten, Migrationen und Discovery prüfen
+        run: |
+          node dist/index.js > server.log 2>&1 &
+          for i in $(seq 1 30); do curl -sf localhost:8080/api/health && break; sleep 1; done
+          curl -sf localhost:8080/.well-known/kontor | tee /dev/stderr | grep -q '"product":"kontor"'
+          curl -sf localhost:8080/api/setup/status | grep -q '"needsSetup":true'
+          test "$(curl -s -o /dev/null -w '%{http_code}' localhost:8080/api/customers)" = "401"
+      - if: failure()
+        run: cat server.log
+
+  desktop:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/desktop
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/desktop/package-lock.json
+      - run: npm ci
+      - run: diff -u ../server/src/lib/calc.ts src/lib/calc.ts
+      - run: npm run build
