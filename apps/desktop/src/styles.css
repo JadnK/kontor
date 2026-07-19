@@ -1282,6 +1282,191 @@ input.num {
   max-width: 320px;
 }
 
+/* ---------- Tickets ---------- */
+.ticket-list {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ticket-list li + li {
+  border-top: 1px solid var(--line-soft);
+}
+.ticket-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 12px minmax(0, 1fr) auto;
+  gap: 4px 12px;
+  align-items: start;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  padding: 12px 16px 12px 12px;
+  cursor: pointer;
+}
+.ticket-row:hover {
+  background: var(--hover);
+}
+.unread-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 6px;
+  background: transparent;
+}
+.ticket-row.unread .unread-dot {
+  background: var(--primary);
+}
+.ticket-row.unread .ticket-subject {
+  font-weight: 700;
+}
+.ticket-subject {
+  font-weight: 550;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ticket-meta {
+  font-size: 12.5px;
+  color: var(--muted);
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.ticket-snippet {
+  grid-column: 2 / 4;
+  color: var(--muted);
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ticket-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  font-size: 12.5px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.thread {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.msg {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  max-width: 860px;
+}
+.msg-out {
+  margin-left: 48px;
+  border-color: color-mix(in srgb, var(--primary) 35%, var(--line));
+  background: color-mix(in srgb, var(--tint) 45%, var(--surface));
+}
+.msg-note {
+  margin-left: 24px;
+  background: var(--ochre-tint);
+  border-color: color-mix(in srgb, var(--ochre) 30%, var(--line));
+}
+.msg-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 13px;
+}
+.msg-head .who {
+  font-weight: 600;
+}
+.msg-head .when {
+  color: var(--muted);
+  white-space: nowrap;
+}
+.msg-body {
+  padding: 12px 14px 14px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.55;
+}
+.msg-files {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 0 14px 12px;
+}
+.file-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  border-radius: 4px;
+  padding: 3px 9px;
+  font-size: 12.5px;
+  cursor: pointer;
+  color: var(--ink);
+}
+.file-chip:hover {
+  border-color: var(--primary);
+}
+.composer {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  max-width: 860px;
+  margin-left: 48px;
+}
+.composer-tabs {
+  display: flex;
+  gap: 2px;
+  padding: 6px 6px 0;
+}
+.composer-tabs button {
+  border: 0;
+  background: transparent;
+  padding: 7px 12px;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  color: var(--muted);
+  font-weight: 550;
+}
+.composer-tabs button[aria-pressed="true"] {
+  color: var(--ink);
+  box-shadow: inset 0 -2px 0 var(--primary);
+}
+.composer textarea {
+  border: 0;
+  border-top: 1px solid var(--line-soft);
+  border-radius: 0;
+  min-height: 150px;
+  padding: 12px 14px;
+  box-shadow: none !important;
+}
+.composer-foot {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  padding: 10px 12px;
+  border-top: 1px solid var(--line-soft);
+}
+.reason-chip {
+  display: inline-block;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: var(--badge-neutral);
+  color: var(--ink-2);
+}
+
 /* ---------- Detailseiten ---------- */
 .detail-grid {
   display: grid;
