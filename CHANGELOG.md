@@ -1,5 +1,12 @@
 # Änderungen
 
+## 0.3.0 – Juli 2026
+
+- Ticket-Postfach mit Filter, Antworten aus der App
+- Zahlungsabgleich per CAMT, MT940 und CSV
+- Datensicherung als JSON (zusammenführen oder ersetzen)
+- Gründe für 0 % Umsatzsteuer, Adresszusatz, Hell/Dunkel
+
 ## 0.2.0 – Juli 2026
 
 - XRechnung 3.0
