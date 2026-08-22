@@ -2113,3 +2113,112 @@ input.num {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---------- Bankverbindung (automatischer Abruf) ---------- */
+.bankconn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.bankconn > .icon {
+  width: 24px;
+  height: 24px;
+  color: var(--muted);
+  flex: none;
+}
+.bankconn-off {
+  background: var(--surface-2);
+}
+.bankconn-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--line-strong);
+  flex: none;
+  align-self: flex-start;
+  margin-top: 6px;
+}
+.bankconn-dot.ok {
+  background: var(--primary);
+  box-shadow: 0 0 0 3px var(--tint);
+}
+.bankconn-dot.warn {
+  background: var(--ochre);
+  box-shadow: 0 0 0 3px var(--ochre-tint);
+}
+.bankconn-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.bankconn-main strong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.bankconn-accounts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  margin-top: 6px;
+}
+.bankconn-actions {
+  display: flex;
+  gap: 8px;
+  flex: none;
+}
+.connect-wait {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.connect-wait p {
+  margin: 0 0 6px;
+}
+.connect-wait .spinner {
+  margin-top: 4px;
+}
+.connect-fallback {
+  margin-top: 18px;
+  border-top: 1px solid var(--line-soft);
+  padding-top: 12px;
+}
+.connect-fallback summary {
+  cursor: pointer;
+  color: var(--link);
+}
+.connect-fallback .inline-form input {
+  flex: 1;
+}
+select.bank-list {
+  width: 100%;
+  height: auto;
+  padding: 4px;
+}
+select.bank-list option {
+  padding: 5px 8px;
+  border-radius: 3px;
+}
+ol.steps {
+  margin: 0 0 16px;
+  padding-left: 20px;
+  color: var(--ink-2);
+}
+ol.steps li {
+  margin-bottom: 6px;
+}
+.pem-state {
+  flex: 1;
+  align-self: center;
+}
+.inline-form input[readonly] {
+  flex: 1;
+  background: var(--surface-2);
+}
