@@ -1,5 +1,11 @@
 # Änderungen
 
+## 0.4.0 – August 2026
+
+- Automatischer Kontoabruf über Enable Banking (PSD2)
+- Teilzahlungen mit eigener Mail und Restbetrag
+- Doppelte Zahlungen und doppelte Bestätigungen werden verhindert
+
 ## 0.3.0 – Juli 2026
 
 - Ticket-Postfach mit Filter, Antworten aus der App
