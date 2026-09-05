@@ -1,0 +1,1 @@
+ALTER TABLE "recurring_invoices" ADD COLUMN "anchor_day" integer DEFAULT 1 NOT NULL;
