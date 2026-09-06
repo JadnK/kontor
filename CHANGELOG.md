@@ -1,5 +1,12 @@
 # Änderungen
 
+## 0.5.0 – September 2026
+
+- Angebote mit Online-Annahme, Angebot → Rechnung
+- Abo-Rechnungen mit Leistungszeitraum und Nachholen
+- Mahnstufen mit Gebühren und Verzugszinsen
+- GiroCode auf Rechnungen und Mahnungen
+
 ## 0.4.0 – August 2026
 
 - Automatischer Kontoabruf über Enable Banking (PSD2)
