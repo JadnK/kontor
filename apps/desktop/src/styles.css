@@ -2483,6 +2483,19 @@ tr.row-off td {
   text-decoration: line-through;
 }
 
+/* ---------- Ausgaben ---------- */
+.drop-target {
+  min-height: 100%;
+  border-radius: var(--radius);
+  outline: 2px dashed transparent;
+  outline-offset: 6px;
+  transition: outline-color 0.12s;
+}
+.drop-target.active {
+  outline-color: var(--primary);
+  background: var(--tint);
+}
+
 /* ---------- Tickets: Zeit & Material ---------- */
 .ticket-work {
   margin-top: 18px;
