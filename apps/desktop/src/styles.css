@@ -2522,3 +2522,56 @@ tr.row-off td {
   vertical-align: -2px;
   color: var(--muted);
 }
+
+/* ---------- Auswertung ---------- */
+.bar-pair {
+  gap: 2px;
+}
+.bar-pair .bar {
+  flex: 1;
+}
+.bar.bar-in {
+  background: var(--bar);
+}
+.bar.bar-out {
+  background: var(--ochre);
+  opacity: 0.75;
+}
+.bar-col:last-child .bar-pair .bar-in,
+.bar-col:hover .bar-pair .bar-in {
+  background: var(--bar);
+}
+.legend {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  margin: 0 4px 0 8px;
+  vertical-align: 0;
+}
+.legend:first-child {
+  margin-left: 0;
+}
+.legend-in {
+  background: var(--bar);
+}
+.legend-out {
+  background: var(--ochre);
+  opacity: 0.75;
+}
+.ku-box {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+.limit + .limit {
+  margin-top: 12px;
+}
+.limit-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+  margin-bottom: 4px;
+}

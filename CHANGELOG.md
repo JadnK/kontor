@@ -1,5 +1,12 @@
 # Änderungen
 
+## 0.6.0 – September 2026
+
+- Zeiterfassung mit Stoppuhr, Projekten, Budget und Abrechnung
+- Ausgaben mit Belegen, Abbuchungen aus dem Konto, gelernte Empfänger
+- Auswertung: EÜR, Umsatzsteuer je Quartal, Kleinunternehmergrenze, DATEV-Export
+- Tickets: nur Kunden, Absage-Mail, Prioritäten, Kategorien, Auto-Schließen, Zeit & Material abrechnen
+
 ## 0.5.0 – September 2026
 
 - Angebote mit Online-Annahme, Angebot → Rechnung
