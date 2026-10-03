@@ -1,5 +1,12 @@
 # Änderungen
 
+## 0.7.0 – Oktober 2026
+
+- Kundenportal mit persönlichem Link: Rechnungen, Angebote, Anfragen
+- Anfrage-Formular für die Website (iframe oder eigenes Formular), Spam-Schutz
+- Online-Zahlung über Stripe mit Webhook, PayPal.me, Zahlungsseite mit GiroCode
+- Stripe-Auszahlungen werden im Kontoauszug erkannt
+
 ## 0.6.0 – September 2026
 
 - Zeiterfassung mit Stoppuhr, Projekten, Budget und Abrechnung
