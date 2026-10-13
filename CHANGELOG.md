@@ -1,5 +1,18 @@
 # Änderungen
 
+## 1.0.0 – Oktober 2026
+
+- **Verträge**: Laufzeit, Verlängerung, Kündigungsfristen, monatliche Einnahmen mit 12-Monats-Prognose, Erinnerung vor Fristablauf, Kündigung erfassen und zurücknehmen, automatische Abrechnung, Vertragsdokument
+- **ZUGFeRD 2** (PDF/A-3, EN 16931) als Standard für Rechnungs-PDFs, eingebettete Schrift
+- **Rechnungsdesigns** Klassisch, Modern, Schlicht
+- **Weitere Firmen**: eigene Absenderdaten, Bank, Logo, Umsatzsteuer-Status und Nummernkreis
+- **Benachrichtigungen** bei Zahlungen, Tickets und Angebotsantworten
+- Positionsrabatte auf dem PDF mit Euro-Betrag und Positionssumme, Belegrabatt als „Rabatt 10 %“
+- § 19-Hinweis: „Steuerbefreiung für Kleinunternehmer gemäß § 19 UStG.“
+- XRechnung: Verkäuferkennung auch ohne USt-IdNr. (BR-CO-26)
+- GiroCode mit Ruhezone, Infoblock und Seitenzahlen überlappen nicht mehr
+- Datensicherung enthält alle Bereiche inkl. Belege und Dokumente
+
 ## 0.7.0 – Oktober 2026
 
 - Kundenportal mit persönlichem Link: Rechnungen, Angebote, Anfragen
